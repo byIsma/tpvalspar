@@ -20,7 +20,7 @@
 		{
 			var oauth_url = 'https://www.facebook.com/dialog/oauth/';
 			oauth_url += '?client_id=492668300762232';
-			oauth_url += '&redirect_uri=' + encodeURIComponent('https://23.21.84.9/Valspar/');
+			oauth_url += '&redirect_uri=' + encodeURIComponent('https://valspar.thetigerparty.com/Valspar/');
 			oauth_url += '&scope=publish_stream';
 			oauth_url += '&state=GetDC';
 			window.top.location = oauth_url;

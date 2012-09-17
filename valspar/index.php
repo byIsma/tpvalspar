@@ -20,7 +20,7 @@ if($user)
         $ret_obj = $facebook->api('/me/feed', 'POST',
                                     array(
                                       'link' => 'apps.facebook.com/valspar/',
-									  'source' => 'http://ec2-23-21-84-9.compute-1.amazonaws.com/Valspar/img/sample001.jpg' ,
+									  'source' => 'http://valspar.thetigerparty.com/Valspar/img/sample001.jpg' ,
                                       'message' => 'Share a Image from Valspar',
 									  'description' => 'Share a Image from Valspar'
                                  ));
@@ -99,7 +99,7 @@ if($user)
 			{
 				var oauth_url = 'https://www.facebook.com/dialog/oauth/';
 				oauth_url += '?client_id=492668300762232';
-				oauth_url += '&redirect_uri=' + encodeURIComponent('https://ec2-23-21-84-9.compute-1.amazonaws.com/Valspar/');
+				oauth_url += '&redirect_uri=' + encodeURIComponent('https://valspar.thetigerparty.com/Valspar/');
 				oauth_url += '&scope=publish_stream';
 				oauth_url += '&state=GetDC';
 				window.top.location = oauth_url;
@@ -119,7 +119,7 @@ if($user)
 				$("a[id^='Img']").click(function(e)
 				{
 					var ID = this.id.substring(4);
-					$('.item').attr("src","http://ec2-23-21-84-9.compute-1.amazonaws.com/Valspar/img/sample00"+ID+".jpg");
+					$('.item').attr("src","http://valspar.thetigerparty.com/Valspar/img/sample00"+ID+".jpg");
 				});
 
 				$("#FBShare").click(function(e)
@@ -174,7 +174,7 @@ if($user)
 
 <div class="SliderImage" align="center">
 	<div class="slider" style="width:800px; height:600px; overflow:hidden">
-		<img class="item" src="http://ec2-23-21-84-9.compute-1.amazonaws.com/Valspar/img/sample001.jpg" id="Img001"/>
+		<img class="item" src="http://valspar.thetigerparty.com/Valspar/img/sample001.jpg" id="Img001"/>
 		<!--img class="item" src="img/sample002.jpg" id="Img002"/>
 		<img class="item" src="img/sample003.jpg" id="Img003"/>
 		<img class="item" src="img/sample004.jpg" id="Img004"/>
