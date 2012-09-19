@@ -113,13 +113,19 @@ if($user)
 				oauth_url += '&state=AfterGetDC';
 				window.top.location = oauth_url;
 			}
+				var ID = 1;
 
 			$(document).ready(function(e)
 			{
 				$("a[id^='Img']").click(function(e)
 				{
-					var ID = this.id.substring(4);
+					ID = this.id.substring(4);
 					$('.item').attr("src","http://valspar.thetigerparty.com/Valspar/img/sample00"+ID+".jpg");
+				});
+
+				$("#EMShare").click(function(e)
+				{
+					window.open( "mailto:?subject=Share Image from Valspar&body=<img scr=\""+$('.item').attr("src")+"\" /><br/>Share from Valspar https://apps.facebook.com/valspar/");
 				});
 
 				$("#FBShare").click(function(e)
@@ -163,7 +169,41 @@ if($user)
 //*/
 
 				});
-			
+				$("#TWShare").click(function(e)
+				{
+					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index.php?ID="+ID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height=300');
+/*					var xmlhttp;
+					if (window.XMLHttpRequest)
+					{// code for IE7+, Firefox, Chrome, Opera, Safari
+						xmlhttp=new XMLHttpRequest();
+					}
+					else
+					{// code for IE6, IE5
+						xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					alert(ID);
+					var params = "ID=" + ID;
+					
+					xmlhttp.onreadystatechange=function()
+					{
+						if (xmlhttp.readyState==4 && xmlhttp.status==200)
+						{
+							if( xmlhttp.responseText == "200" )
+								alert( "Share Image To Twitter Success!!" );
+							else
+								alert( xmlhttp.responseText );
+							
+						}
+					}
+					xmlhttp.open("POST","https://valspar.thetigerparty.com/Valspar/twitter/index.php",true);
+					
+					xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					xmlhttp.setRequestHeader("Content-length", params.length);
+					xmlhttp.setRequestHeader("Connection", "close");
+
+					xmlhttp.send( params );	
+*/				
+				});
 			});
 			
         </script>
@@ -189,11 +229,15 @@ if($user)
     </div>
     
     <div style="width:800px">
-    	<div style="float:left;padding-left:25%;">
+    	<div style="float:left;padding-left:14%;">
+        	<a type="button" id="EMShare"><img src="img/mail_share.jpg" style="height:48px;"/></a>
+        	<!--input type="button" id="FBShare" value="Share To Facebook"/-->
+        </div>
+    	<div style="float:left;padding-left:14%;">
         	<a type="button" id="FBShare"><img src="img/facebook-sharing.jpg" style="height:48px;"/></a>
         	<!--input type="button" id="FBShare" value="Share To Facebook"/-->
         </div>
-    	<div style="float:right;padding-right:25%;">
+    	<div style="float:left;padding-left:14%;">
         	<a type="button" id="TWShare"><img src="img/twitter_share.png" style="height:48px;"/></a>
 			<!--input type="button" id="TWShare" value="Share To Twitter"/-->
 		</div>
