@@ -1,5 +1,13 @@
 <?php
-
+/*
+$to = "kaku32@hotmail.com";
+$subject = "Test mail";
+$message = "Hello! This is a simple email message.";
+$from = "kaku32@hotmail.com";
+$headers = "From:" . $from;
+mail($to,$subject,$message,$headers);
+echo "Mail Sent.";
+*/
 require './facebook/src/facebook.php';
 
 // Create our Application instance (replace this with your appId and secret).
@@ -61,7 +69,6 @@ if($user)
 
         <script src="js/jquery-latest.js"></script>
         <script type="text/javascript">
-
 			window.fbAsyncInit = function()
 			{
 				FB.init(
@@ -81,20 +88,8 @@ if($user)
 				js = d.createElement('script'); js.id = id; js.async = true;
 				js.src = "//connect.facebook.net/en_US/all.js";
 				ref.parentNode.insertBefore(js, ref);
-			}(document));		
-	
-	
-/*
-			function getQueryString( paramName )
-			{ 
-				paramName = paramName .replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]").toLowerCase(); 
-				var reg = "[\\?&]"+paramName +"=([^&#]*)"; 
-				var regex = new RegExp( reg ); 
-				var regResults = regex.exec( location.href.toLowerCase() ); 
-				if( regResults == null ) return ""; 
-				else return regResults [1]; 
-			} 
-*/
+			}(document));
+
 			if( location.search.indexOf("GetDC") == -1 )
 			{
 				var oauth_url = 'https://www.facebook.com/dialog/oauth/';
@@ -125,7 +120,15 @@ if($user)
 
 				$("#EMShare").click(function(e)
 				{
-					window.open( "mailto:?subject=Share Image from Valspar&body=<img scr=\""+$('.item').attr("src")+"\" /><br/>Share from Valspar https://apps.facebook.com/valspar/");
+//					var RTFBody = $('.item').attr("src");
+//					window.open( "mailto:?subject=AAA&body=BBB&body=<img src=\""+$('.item').attr("src")+"\"/>");
+					FB.api('/me', function(response)
+					{
+						window.open( "https://valspar.thetigerparty.com/Valspar/ShareByMail.php?ID="+ID+"&Name="+response.name+"&Email="+response.email, 
+									"Share Mail",
+									'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=150,height=150');
+					});
+
 				});
 
 				$("#FBShare").click(function(e)
@@ -133,11 +136,11 @@ if($user)
 					var result = FB.ui(
 					{
 						method: 'feed',
-						name: 'Valspar Share',
+						name: 'Valspar Love Your Color Guarantee Project',
 						link: 'https://apps.facebook.com/valspar',
 						picture: $('.item').attr("src"),
-						caption: 'Share Image From Valspar',
-//						description: 'Share Image From Valspar'
+						caption: 'As a part of the Valspar Love Your Color Guarabtee Project, I helped guarabtee a donation to Habitat for Humanity. You Can, too.'//,
+//						properties: {'You Can, too.':'https://apps.facebook.com/valspar'}
 					},
 					function(response)
 					{
@@ -146,24 +149,20 @@ if($user)
 //							alert('Post was published.');
 							FB.api('/me', function(response)
 							{
-								alert(response.name);
-							});
-							FB.getLoginStatus(function(response)
-							{
-								 response;
+								$.post( 'https://valspar.thetigerparty.com/Valspar/SQL.php',	{"Name": response.name, "Email": response.email, "PictureSelect": ID}, function(data)
+								{
+								});
 							});
 						}
 						else
 						{
 //							alert('Post was not published.');
-							FB.api('/me', function(response)
-							{
-								alert(response.name);
-							});
-							FB.getLoginStatus(function(response)
-							{
-								 response;
-							});
+//alert( strUserName );
+//alert( strUserEmail );
+//							FB.getLoginStatus(function(response)
+//							{
+//								 response;
+//							});
 						}
 					});							
 //*/
