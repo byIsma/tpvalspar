@@ -47,8 +47,8 @@
 				oauth_url += '&state=AfterGetDC';
 				window.top.location = oauth_url;
 			}
-				var ID = 1;
-*/
+*/				var ID = 1;
+
 			$(document).ready(function(e)
 			{
 /*				$("a[id^='Img']").click(function(e)
@@ -99,9 +99,9 @@
 					});							
 
 				});
-				$("#TWShare").click(function(e)
+				$("#ImgBtTW").click(function(e)
 				{
-					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index.php?ID="+ID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height=300');
+					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height=300');
 /*					var xmlhttp;
 					if (window.XMLHttpRequest)
 					{// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -153,11 +153,11 @@
 				$("#ImgBtFB").mouseover(function(e){ $("#ImgBtFB").attr("src","Assets/03_Post_Donate/Facebook_Share_OnMouseOver.png"); });
 				$("#ImgBtTW").mouseover(function(e){ $("#ImgBtTW").attr("src","Assets/03_Post_Donate/Tweet_OnMouseOver.png"); });
 
-				$("#ImgBt1").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_1.png"); });
-				$("#ImgBt2").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_2.png"); });
-				$("#ImgBt3").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_3.png"); });
-				$("#ImgBt4").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_4.png"); });
-				$("#ImgBt5").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_5.png"); });
+				$("#ImgBt1").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_1.png"); ID=1;});
+				$("#ImgBt2").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_2.png"); ID=2;});
+				$("#ImgBt3").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_3.png"); ID=3;});
+				$("#ImgBt4").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_4.png"); ID=4;});
+				$("#ImgBt5").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_5.png"); ID=5;});
 
 				$("#ImgBtSu").mouseup(function(e){ $("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn.png"); });
 				$("#ImgBtSu").mousedown(function(e){ $("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn_OnClick.png"); });
