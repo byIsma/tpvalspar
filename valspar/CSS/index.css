@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#IndexPage
+{
+	display:block;
+}
+
+#SubmitPage
+{
+	display:none;
+}
+
+.objinside
+{
+	position:absolute;
+}
+
+/* Page Background */
+#MainCanvas
+{
+	background-image:url(../Assets/01_Tab/Tab_BG.png);
+	width:928px;
+	height:1061px;
+}
+#PopupCanvas
+{
+	background-image:url(../Assets/03_Post_Donate/Post_Donate_BG.png);
+	width:330px;
+	height:190px;
+	display:none;
+}
+/* End of Page Background */
+
+/* Button Position*/
+	/* Fangate */
+#ImgLike{left:160px; top:156px;}
+	/* End of Fangate */
+
+	/* Tab */
+#DivImgColor1{left:415px; top:490px;}
+#DivImgColor2{left:575px; top:490px;}
+#DivImgColor3{left:735px; top:490px;}
+#DivImgColor4{left:495px; top:630px;}
+#DivImgColor5{left:655px; top:630px;}
+
+#DivImgHouse{left:65px; top:473px;}
+
+#DivImgBtSubmit{left:495px; top:767px;}
+#DivImgBtText{left:54px; top:916px;}
+	/* End of Tab */
+	
+	/* Post Donate Screen */
+#DivImgBtFB{left:75px; top:132px;}
+#DivImgBtTW{left:179px; top:132px;}
+#DivImgBtClose{left:290px; top:12px;}
+	/* End of Post Donate Screen */
+/* End of Button Position*/
