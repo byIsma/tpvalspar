@@ -17,11 +17,20 @@
 }
 
 /* Page Background */
-#MainCanvas
+#FongateCanvas
+{
+	width:928px;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+}#MainCanvas
 {
 	background-image:url(../Assets/01_Tab/Tab_BG.png);
 	width:928px;
 	height:1061px;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
 }
 #PopupCanvas
 {
@@ -29,12 +38,20 @@
 	width:330px;
 	height:190px;
 	display:none;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
 }
+
 /* End of Page Background */
 
 /* Button Position*/
 	/* Fangate */
-#ImgLike{left:160px; top:156px;}
+/**/
+#ImgLike{left:186px; top:160px;}
+/*/
+#ImgLike{left:146px; top:146px;}
+/**/
 	/* End of Fangate */
 
 	/* Tab */
@@ -44,10 +61,10 @@
 #DivImgColor4{left:495px; top:630px;}
 #DivImgColor5{left:655px; top:630px;}
 
-#DivImgHouse{left:65px; top:473px;}
+#DivImgHouse{left:57px; top:464px;}
 
-#DivImgBtSubmit{left:495px; top:767px;}
-#DivImgBtText{left:54px; top:916px;}
+#DivImgBtSubmit{left:487px; top:758px;}
+#DivImgBtText{left:46px; top:907px;}
 	/* End of Tab */
 	
 	/* Post Donate Screen */
