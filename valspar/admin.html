@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="CSS/admin.css" />
+        <script src="js/jquery-latest.js"></script>
+        <script src="js/jquery.lightbox_me.js"></script>
+        <script type="text/javascript">
+	
+			$(document).ready(function(e)
+			{
+				
+				$("#ImgBt1").mouseout(function(e){ $("#ImgBt1").attr("src","Assets/01_Tab/Color_1.png"); });
+				$("#ImgBt2").mouseout(function(e){ $("#ImgBt2").attr("src","Assets/01_Tab/Color_2.png"); });
+				$("#ImgBt3").mouseout(function(e){ $("#ImgBt3").attr("src","Assets/01_Tab/Color_3.png"); });
+				$("#ImgBt4").mouseout(function(e){ $("#ImgBt4").attr("src","Assets/01_Tab/Color_4.png"); });
+				$("#ImgBt5").mouseout(function(e){ $("#ImgBt5").attr("src","Assets/01_Tab/Color_5.png"); });
+				$("#ImgBtTx").mouseout(function(e){ $("#ImgBtTx").attr("src","Assets/01_Tab/LoveYourColor.png"); });
+				$("#ImgBtFB").mouseout(function(e){ $("#ImgBtFB").attr("src","Assets/03_Post_Donate/Facebook_Share.png"); });
+				$("#ImgBtTW").mouseout(function(e){ $("#ImgBtTW").attr("src","Assets/03_Post_Donate/Tweet.png"); });
+				
+				$("#ImgBt1").mouseover(function(e){ $("#ImgBt1").attr("src","Assets/01_Tab/Color_1_OnMouseOver.png"); });
+				$("#ImgBt2").mouseover(function(e){ $("#ImgBt2").attr("src","Assets/01_Tab/Color_2_OnMouseOver.png"); });
+				$("#ImgBt3").mouseover(function(e){ $("#ImgBt3").attr("src","Assets/01_Tab/Color_3_OnMouseOver.png"); });
+				$("#ImgBt4").mouseover(function(e){ $("#ImgBt4").attr("src","Assets/01_Tab/Color_4_OnMouseOver.png"); });
+				$("#ImgBt5").mouseover(function(e){ $("#ImgBt5").attr("src","Assets/01_Tab/Color_5_OnMouseOver.png"); });
+				$("#ImgBtTx").mouseover(function(e){ $("#ImgBtTx").attr("src","Assets/01_Tab/LoveYourColor_OnMouseOver.png"); });
+				$("#ImgBtFB").mouseover(function(e){ $("#ImgBtFB").attr("src","Assets/03_Post_Donate/Facebook_Share_OnMouseOver.png"); });
+				$("#ImgBtTW").mouseover(function(e){ $("#ImgBtTW").attr("src","Assets/03_Post_Donate/Tweet_OnMouseOver.png"); });
+
+				$("#ImgBt1").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_1.png"); ID=1;});
+				$("#ImgBt2").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_2.png"); ID=2;});
+				$("#ImgBt3").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_3.png"); ID=3;});
+				$("#ImgBt4").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_4.png"); ID=4;});
+				$("#ImgBt5").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_5.png"); ID=5;});
+
+				$("#ImgBtSu").mouseup(function(e){ $("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn.png"); });
+				$("#ImgBtSu").mousedown(function(e){ $("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn_OnClick.png"); });
+				$("#ImgBtSu").click(function(e)
+				{
+					FB.api('/me', function(response)
+					{
+						$.post( 'https://valspar.thetigerparty.com/Valspar/SQLSubmit.php',	{"Name": response.name, "Email": response.email, "PictureSelect": ID}, function(data)
+						{
+						});
+					});
+					$('#PopupCanvas').lightbox_me({centered: true});				
+				});
+				
+				$("#ImgBtClose").mouseup(function(e){ $("#ImgBtClose").attr("src","Assets/03_Post_Donate/Close.png"); });
+				$("#ImgBtClose").mousedown(function(e){ $("#ImgBtClose").attr("src","Assets/03_Post_Donate/Close_OnClick.png"); });
+				
+				$('#LoginCanvas').lightbox_me({centered: true, closeClick: false});	
+				$("#BtLogin").click(function(e){ $('#LoginCanvas').trigger('close'); });
+			});
+			
+			
+        </script>
+<title>Valspar</title>
+</head>
+
+<body>
+
+<div>
+<div id="Reportanvas">
+<table><tr><td></td></tr></table>
+</div>
+<div class="objinside" id="LoginCanvas">
+<form id="LoginForm">
+<div id="LbUser">Account:</div><div id="InUser"><input type="text" name="user" id="User"/></div>
+<div id="LbPass">Password:</div><div id="InPass"><input type="password" name="password" id="Pass"/></div>
+<input type="button" value="Login" id="BtLogin"/>
+</div>
+</form>
+</div>
+</div>
+
+</body>
+</html>
