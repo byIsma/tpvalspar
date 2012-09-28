@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.objinside
+{
+	position:absolute;
+}
+
+#LoginCanvas
+{
+	background-image:url(../Assets/Null_BG.png);
+	position:relative;
+	width:327px;
+	height:192px;
+	margin-left:auto;
+	margin-right:auto;
+	display:none;
+}
+
+/*
+#LoginForm{position:absolute;}
+*/
+#LbUser{position:absolute; top:60px; left:35px;}
+#InUser{position:absolute; top:60px; right:35px;}
+#LbPass{position:absolute; top:90px; left:35px;}
+#InPass{position:absolute; top:90px; right:35px;}
+#BtLogin{position:absolute; top:120px; right:40px;}
