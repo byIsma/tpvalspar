@@ -47,7 +47,7 @@
 				oauth_url += '&state=AfterGetDC';
 				window.top.location = oauth_url;
 			}
-*/				var ID = 1;
+*/				var ID = 0;
 
 			$(document).ready(function(e)
 			{
@@ -77,7 +77,7 @@
 						method: 'feed',
 						name: 'Valspar Love Your Color Guarantee Project',
 						link: 'https://apps.facebook.com/valspar',
-						picture: 'http://valspar.thetigerparty.com/Valspar/' + $('#ImgHouse').attr("src"),
+						picture: 'http://valspar.thetigerparty.com/Valspar/Assets/Facebook_Twitter_Icons/Color_'+ID+'_icon.png',
 						caption: 'As a part of the Valspar Love Your Color Guarabtee Project, I helped guarabtee a donation to Habitat for Humanity. You Can, too.'//,
 //						properties: {'You Can, too.':'https://apps.facebook.com/valspar'}
 					},
@@ -101,7 +101,7 @@
 				});
 				$("#ImgBtTW").click(function(e)
 				{
-					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height=300');
+					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=550,height=300');
 /*					var xmlhttp;
 					if (window.XMLHttpRequest)
 					{// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -161,7 +161,23 @@
 
 				$("#ImgBtSu").mouseup(function(e){ $("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn.png"); });
 				$("#ImgBtSu").mousedown(function(e){ $("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn_OnClick.png"); });
-				$("#ImgBtSu").click(function(e){ $('#PopupCanvas').lightbox_me({centered: true}); });
+				$("#ImgBtSu").click(function(e)
+				{
+					if(ID == 0)
+					{
+						alert("Please select your color, first!!");
+					}
+					else
+					{
+						FB.api('/me', function(response)
+						{
+							$.post( 'https://valspar.thetigerparty.com/Valspar/SQLSubmit.php',	{"Name": response.name, "Email": response.email, "PictureSelect": ID}, function(data)
+							{
+							});
+						});
+						$('#PopupCanvas').lightbox_me({centered: true});
+					}
+				});
 				
 				$("#ImgBtClose").mouseup(function(e){ $("#ImgBtClose").attr("src","Assets/03_Post_Donate/Close.png"); });
 				$("#ImgBtClose").mousedown(function(e){ $("#ImgBtClose").attr("src","Assets/03_Post_Donate/Close_OnClick.png"); });
@@ -181,8 +197,14 @@
 <body>
 
 <div id="IndexPage">
-	<div class="objinside"><img src="Assets/00_Fangate/00Fangate_BG.png" onclick="GotoSubmitPage()"/></div>
-	<div class="objinside" id="ImgLike"><img src="Assets/00_Fangate/LikeBtn.png" id="FBLike" /></div>
+	<div id="FongateCanvas"><img src="Assets/00_Fangate/00Fangate_BG.png" onclick="GotoSubmitPage()"/>
+		<div class="objinside" id="ImgLike">
+        	<!--a href="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fapps.facebook.com%2Fvalspar&send=false&layout=button_count&width=113&show_faces=false&action=like&colorscheme=light&font=arial&height=21&appId=492668300762232">
+        		<img src="Assets/00_Fangate/LikeBtn.png" id="FBLike" />
+            </a-->
+        	<div class="fb-like" data-href="https://apps.facebook.com/valspar" data-send="false" data-layout="button_count" data-width="113" data-show-faces="false" data-font="arial"></div>
+    	</div>
+    </div>
 </div>
 
 <div id="SubmitPage">
