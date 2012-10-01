@@ -18,7 +18,7 @@ require_once('config.php');
 
 /* If access tokens are not available redirect to connect page. */
 if (empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_token']) || empty($_SESSION['access_token']['oauth_token_secret'])) {
-    header('Location: ./clearsessions.php?ID='.$_GET['ID']);
+    header('Location: ./clearsessions.php?ID='.$_GET['ID'].'SubmitID='.$_GET['SubmitID']);
 }
 /* Get user access tokens out of the session. */
 $access_token = $_SESSION['access_token'];
@@ -68,19 +68,20 @@ if ($code == 200)
 	/* If method is set change API call made. Test is called by default. */
 	$content = $Getter->get('account/verify_credentials');
 
-$_SESSION['Name'] = $content->screen_name;
-$_SESSION['Email'] = $content->id_str;
+$_SESSION['SubmitID'] = $_GET['SubmitID'];
 $_SESSION['PictureSelect'] = $_GET['ID'];
 	require( "../SQL.php");
 //	var_dump($content->id_str);
 //	var_dump($content->name);
 
 //  tmhUtilities::pr(json_decode($connection->response['response']));
-	header( 'Location: '.json_decode($connection->response['response'])->entities->media[0]->expanded_url );
+//	header( 'Location: '.json_decode($connection->response['response'])->entities->media[0]->expanded_url );
+echo json_decode($connection->response['response'])->entities->media[0]->expanded_url;
 //	var_dump( json_decode($connection->response['response'])->entities );
 }
 else
 {
+var_dump( $connection );
   tmhUtilities::pr($connection->response['response']);
 }
 

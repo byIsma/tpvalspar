@@ -14,7 +14,7 @@ if (CONSUMER_KEY === '' || CONSUMER_SECRET === '') {
   exit;
 }
 
-    header('Location: ./redirect.php?ID='.$_GET['ID']); 
+    header('Location: ./redirect.php?ID='.$_GET['ID'].'SubmitID='.$_GET['SubmitID']); 
 
 /* Build an image link to start the redirect process. */
 //$content = '<a href="./redirect.php?ID='.$_GET['ID'].'"><img src="./images/lighter.png" alt="Sign in with Twitter"/></a>';
