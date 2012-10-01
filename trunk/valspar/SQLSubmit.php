@@ -10,5 +10,9 @@ if(isset($_POST['Name']) && isset($_POST['Email']) && isset($_POST['PictureSelec
 		echo "<Error Message=\"".$strSqlCommand."\" Domain=\"CreateGroup\" />";
 		exit;
 	}
+	else
+	{
+		echo mysql_insert_id();
+	}
 }
 ?>
