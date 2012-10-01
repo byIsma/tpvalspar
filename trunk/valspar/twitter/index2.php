@@ -18,7 +18,7 @@ require_once('config.php');
 
 /* If access tokens are not available redirect to connect page. */
 if (empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_token']) || empty($_SESSION['access_token']['oauth_token_secret'])) {
-    header('Location: ./clearsessions.php?ID='.$_GET['ID']);
+    header('Location: ./clearsessions.php?ID='.$_GET['ID'].'SubmitID='.$_GET['SubmitID']);
 }
 /* Get user access tokens out of the session. */
 $access_token = $_SESSION['access_token'];
@@ -62,11 +62,12 @@ echo '
 	{
 		$("#ImgBtTW").click(function(e)
 		{
-			var String = $("#MyString").text();
-				$.post( "index.php?ID='.$_GET['ID'].'&String="+String,
-				function(data)
+			var String = escape($("#MyString").val());//.replace(/\//g,"%2F");
+			$.post( "index.php?ID='.$_GET['ID'].'&String="+String+"&SubmitID='.$_GET['SubmitID'].'",
+			function(data)
 			{
-				data = data;
+//				data = data;
+				location.href = data.split("\n")[2];
 			});
 		});
 	});
@@ -75,7 +76,8 @@ echo '
 <body>
 <div style="background-image:url(../Assets/Facebook_Twitter_Icons/Twitter_BG.png); width:546px; height:297px">
 	<div style="position: absolute; top: 110px; left: 24px; width: 501px; height: 53px;">
-		<textarea rows="4" cols="70" id="MyString"></textarea>
+		<!--textarea rows="4" cols="70" id="MyString">I helped @Valspar_Paint guarabtee a donation to @Habitat_org through #LoveYourColorProject-You Can, too! https://apps.facebook.com/valspar/</textarea-->
+		<textarea rows="4" cols="70" id="MyString">Share @Valspar_Paint @Habitat_org #LoveYourColorProject https://apps.facebook.com/valspar/</textarea>
 	</div>
 	<div style="position: absolute; top: 185px; left: 29px;">
 		<img src="../Assets/Facebook_Twitter_Icons/Color_'.$_GET['ID'].'_icon.png" width="50px"/>
