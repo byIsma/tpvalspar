@@ -55,15 +55,15 @@
 	/* End of Fangate */
 
 	/* Tab */
-#DivImgColor1{left:415px; top:490px;}
-#DivImgColor2{left:575px; top:490px;}
-#DivImgColor3{left:735px; top:490px;}
-#DivImgColor4{left:495px; top:630px;}
-#DivImgColor5{left:655px; top:630px;}
+#DivImgColor1{left:415px; top:490px; cursor:pointer;}
+#DivImgColor2{left:575px; top:490px; cursor:pointer;}
+#DivImgColor3{left:735px; top:490px; cursor:pointer;}
+#DivImgColor4{left:495px; top:630px; cursor:pointer;}
+#DivImgColor5{left:655px; top:630px; cursor:pointer;}
 
 #DivImgHouse{left:57px; top:464px;}
 
-#DivImgBtSubmit{left:487px; top:758px;}
+#DivImgBtSubmit{left:487px; top:758px; display:none;}
 #DivImgBtText{left:46px; top:907px;}
 	/* End of Tab */
 	
