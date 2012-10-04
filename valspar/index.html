@@ -27,6 +27,11 @@
 					cookie     : true, // enable cookies to allow the server to access the session
 					xfbml      : true  // parse XFBML
 				});
+				
+//							FB.getAuthResponse( function(response)
+//			{
+//				alert('You liked the URL: ' + response);
+//			});
 			};
 /*
 			if( location.search.indexOf("GetDC") == -1 )
@@ -154,11 +159,36 @@
 				$("#ImgBtFB").mouseover(function(e){ $("#ImgBtFB").attr("src","Assets/03_Post_Donate/Facebook_Share_OnMouseOver.png"); });
 				$("#ImgBtTW").mouseover(function(e){ $("#ImgBtTW").attr("src","Assets/03_Post_Donate/Tweet_OnMouseOver.png"); });
 
-				$("#ImgBt1").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_1.png"); ID=1;});
-				$("#ImgBt2").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_2.png"); ID=2;});
-				$("#ImgBt3").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_3.png"); ID=3;});
-				$("#ImgBt4").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_4.png"); ID=4;});
-				$("#ImgBt5").click(function(e){ $("#ImgHouse").attr("src","Assets/01_Tab/House_5.png"); ID=5;});
+				$("#ImgBt1").click(function(e)
+				{
+					$("#ImgHouse").attr("src","Assets/01_Tab/House_1.png");
+					ID=1;
+					$('#DivImgBtSubmit').css("display","block");
+				});
+				$("#ImgBt2").click(function(e)
+				{
+					$("#ImgHouse").attr("src","Assets/01_Tab/House_2.png");
+					ID=2;
+					$('#DivImgBtSubmit').css("display","block");
+				});
+				$("#ImgBt3").click(function(e)
+				{
+					$("#ImgHouse").attr("src","Assets/01_Tab/House_3.png");
+					ID=3;
+					$('#DivImgBtSubmit').css("display","block");
+				});
+				$("#ImgBt4").click(function(e)
+				{
+					$("#ImgHouse").attr("src","Assets/01_Tab/House_4.png");
+					ID=4;
+					$('#DivImgBtSubmit').css("display","block");
+				});
+				$("#ImgBt5").click(function(e)
+				{
+					$("#ImgHouse").attr("src","Assets/01_Tab/House_5.png");
+					ID=5;
+					$('#DivImgBtSubmit').css("display","block");
+				});
 
 				$("#ImgBtSu").mouseup(function(e){ $("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn.png"); });
 				$("#ImgBtSu").mousedown(function(e){ $("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn_OnClick.png"); });
@@ -185,6 +215,13 @@
 				$("#ImgBtClose").mouseup(function(e){ $("#ImgBtClose").attr("src","Assets/03_Post_Donate/Close.png"); });
 				$("#ImgBtClose").mousedown(function(e){ $("#ImgBtClose").attr("src","Assets/03_Post_Donate/Close_OnClick.png"); });
 				$("#ImgBtClose").click(function(e){ $('#PopupCanvas').trigger('close'); });
+				
+				$("button").click(function(e)
+				{
+//					if( e )
+					$("#IndexPage").hide();
+					$("#SubmitPage").show();
+				});
 			});
 			
 			function GotoSubmitPage()
@@ -193,6 +230,7 @@
 				$("#SubmitPage").show();
 			}
 			
+
         </script>
 <title>Valspar</title>
 </head>
