@@ -61,10 +61,10 @@
 					<tr bgcolor='#CCCCCC'>
 						<td>Name</td>
 						<td>Email</td>
-						<td>Selected Pictures</td>
+						<td align='center'>Selected Pictures</td>
 						<td>Submit Date</td>
-						<td>Facebook Shared</td>
-						<td>Twitter Shared</td>
+						<td align='center'>Facebook Shared</td>
+						<td align='center'>Twitter Shared</td>
 					</tr>";
 							
 			while( $row = @mysql_fetch_array($result) )
