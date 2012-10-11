@@ -57,12 +57,12 @@
 		}
 		else
 		{
-			echo "<table border='1' id='table'>
+			echo "<table border='1' id='table' align='center'>
 					<tr bgcolor='#CCCCCC'>
 						<td>Name</td>
 						<td>Email</td>
-						<td>Selected Pictured</td>
-						<td>Submit Dated</td>
+						<td>Selected Pictures</td>
+						<td>Submit Date</td>
 						<td>Facebook Shared</td>
 						<td>Twitter Shared</td>
 					</tr>";
