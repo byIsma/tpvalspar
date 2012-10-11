@@ -27,42 +27,13 @@
 					cookie     : true, // enable cookies to allow the server to access the session
 					xfbml      : true  // parse XFBML
 				});
-				
-//							FB.getAuthResponse( function(response)
-//			{
-//				alert('You liked the URL: ' + response);
-//			});
 			};
-/*
-			if( location.search.indexOf("GetDC") == -1 )
-			{
-				var oauth_url = 'https://www.facebook.com/dialog/oauth/';
-				oauth_url += '?client_id=492668300762232';
-				oauth_url += '&redirect_uri=' + encodeURIComponent('https://valspar.thetigerparty.com/Valspar/');
-				oauth_url += '&scope=publish_stream';
-				oauth_url += '&state=GetDC';
-				window.top.location = oauth_url;
-			}
-			else if( location.search.indexOf("AfterGetDC") == -1 )
-			{
-				var oauth_url = 'https://www.facebook.com/dialog/oauth/';
-				oauth_url += '?client_id=492668300762232';
-				oauth_url += '&redirect_uri=' + encodeURIComponent('https://apps.facebook.com/valspar/');
-				oauth_url += '&scope=publish_stream';
-				oauth_url += '&state=AfterGetDC';
-				window.top.location = oauth_url;
-			}
-*/				var ID = 0;
+
+				var ID = 0;
 				var SubmitID = 0;
 
 			$(document).ready(function(e)
 			{
-/*				$("a[id^='Img']").click(function(e)
-				{
-					ID = this.id.substring(4);
-					$('.item').attr("src","http://valspar.thetigerparty.com/Valspar/img/sample00"+ID+".jpg");
-				});
-*/
 				$("#EMShare").click(function(e)
 				{
 //					var RTFBody = $('.item').attr("src");
@@ -84,20 +55,16 @@
 						name: 'Valspar Love Your Color Guarantee Project',
 						link: 'https://apps.facebook.com/valspar',
 						picture: 'http://valspar.thetigerparty.com/Valspar/Assets/Facebook_Twitter_Icons/Color_'+ID+'_icon.png',
-						caption: 'As a part of the Valspar Love Your Color Guarabtee Project, I helped guarabtee a donation to Habitat for Humanity. You Can, too.'//,
+						caption: 'As a part of the Valspar Love Your Color Guarantee Project, I helped guarantee a donation to Habitat for Humanity by painting this house Cool Rain. You can help, too.'//,
 //						properties: {'You Can, too.':'https://apps.facebook.com/valspar'}
 					},
 					function(response)
 					{
 						if (response && response.post_id)
 						{
-//							alert('Post was published.');
-//							FB.api('/me', function(response)
-//							{
-								$.post( 'https://valspar.thetigerparty.com/Valspar/SQL.php',	{"SubmitID": SubmitID}, function(data)
-								{
-								});
-//							});
+							$.post( 'https://valspar.thetigerparty.com/Valspar/SQL.php',	{"SubmitID": SubmitID}, function(data)
+							{
+							});
 						}
 						else
 						{
@@ -107,98 +74,50 @@
 				});
 				$("#ImgBtTW").click(function(e)
 				{
-					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID+"&SubmitID="+SubmitID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=550,height=300');
-/*					var xmlhttp;
-					if (window.XMLHttpRequest)
-					{// code for IE7+, Firefox, Chrome, Opera, Safari
-						xmlhttp=new XMLHttpRequest();
-					}
-					else
-					{// code for IE6, IE5
-						xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-					}
-					alert(ID);
-					var params = "ID=" + ID;
-					
-					xmlhttp.onreadystatechange=function()
-					{
-						if (xmlhttp.readyState==4 && xmlhttp.status==200)
-						{
-							if( xmlhttp.responseText == "200" )
-								alert( "Share Image To Twitter Success!!" );
-							else
-								alert( xmlhttp.responseText );
-							
-						}
-					}
-					xmlhttp.open("POST","https://valspar.thetigerparty.com/Valspar/twitter/index.php",true);
-					
-					xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					xmlhttp.setRequestHeader("Content-length", params.length);
-					xmlhttp.setRequestHeader("Connection", "close");
-
-					xmlhttp.send( params );	
-*/				
+					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID+"&SubmitID="+SubmitID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=550,height=300');		
 				});
+		
 				
-				$("#ImgBt1").mouseout(function(e){ $("#ImgBt1").attr("src","Assets/01_Tab/Color_1.png"); });
-				$("#ImgBt2").mouseout(function(e){ $("#ImgBt2").attr("src","Assets/01_Tab/Color_2.png"); });
-				$("#ImgBt3").mouseout(function(e){ $("#ImgBt3").attr("src","Assets/01_Tab/Color_3.png"); });
-				$("#ImgBt4").mouseout(function(e){ $("#ImgBt4").attr("src","Assets/01_Tab/Color_4.png"); });
-				$("#ImgBt5").mouseout(function(e){ $("#ImgBt5").attr("src","Assets/01_Tab/Color_5.png"); });
+				$("img[id^='ImgBt0']").mouseout(function(e)
+				{
+					$("#"+this.id).attr("src","Assets/01_Tab/Color_"+ this.id.substring(6) +".png");
+				});
+				$("img[id^='ImgBt0']").mouseover(function(e){
+					$("#"+this.id).attr("src","Assets/01_Tab/Color_"+ this.id.substring(6) +"_OnMouseOver.png");
+				});
+				$("img[id^='ImgBt0']").click(function(e)
+				{
+					ID = this.id.substring(6);
+					$("#ImgHouse").attr("src","Assets/01_Tab/House_"+ID+".png");
+					$("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn.png");
+					$("#ImgBtSu").css("cursor","pointer");
+				});
+
+				$("#FBLike").mouseout(function(e){ $("#FBLike").attr("src","Assets/00_Fangate/LikeBtn.png"); });
+				$("#loveyourcolor").mouseout(function(e){ $("#loveyourcolor").attr("src","Assets/00_Fangate/loveyourcolor_link.png"); });
 				$("#ImgBtTx").mouseout(function(e){ $("#ImgBtTx").attr("src","Assets/01_Tab/LoveYourColor.png"); });
 				$("#ImgBtFB").mouseout(function(e){ $("#ImgBtFB").attr("src","Assets/03_Post_Donate/Facebook_Share.png"); });
 				$("#ImgBtTW").mouseout(function(e){ $("#ImgBtTW").attr("src","Assets/03_Post_Donate/Tweet.png"); });
 				
-				$("#ImgBt1").mouseover(function(e){ $("#ImgBt1").attr("src","Assets/01_Tab/Color_1_OnMouseOver.png"); });
-				$("#ImgBt2").mouseover(function(e){ $("#ImgBt2").attr("src","Assets/01_Tab/Color_2_OnMouseOver.png"); });
-				$("#ImgBt3").mouseover(function(e){ $("#ImgBt3").attr("src","Assets/01_Tab/Color_3_OnMouseOver.png"); });
-				$("#ImgBt4").mouseover(function(e){ $("#ImgBt4").attr("src","Assets/01_Tab/Color_4_OnMouseOver.png"); });
-				$("#ImgBt5").mouseover(function(e){ $("#ImgBt5").attr("src","Assets/01_Tab/Color_5_OnMouseOver.png"); });
+				$("#FBLike").mouseover(function(e){ $("#FBLike").attr("src","Assets/00_Fangate/LikeBtn_OnMouseOver.png"); });
+				$("#loveyourcolor").mouseover(function(e){ $("#loveyourcolor").attr("src","Assets/00_Fangate/loveyourcolor_link_OnMouseOver.png"); });
 				$("#ImgBtTx").mouseover(function(e){ $("#ImgBtTx").attr("src","Assets/01_Tab/LoveYourColor_OnMouseOver.png"); });
 				$("#ImgBtFB").mouseover(function(e){ $("#ImgBtFB").attr("src","Assets/03_Post_Donate/Facebook_Share_OnMouseOver.png"); });
 				$("#ImgBtTW").mouseover(function(e){ $("#ImgBtTW").attr("src","Assets/03_Post_Donate/Tweet_OnMouseOver.png"); });
 
-				$("#ImgBt1").click(function(e)
+				$("#ImgBtSu").mouseup(function(e)
 				{
-					$("#ImgHouse").attr("src","Assets/01_Tab/House_1.png");
-					ID=1;
-					$('#DivImgBtSubmit').css("display","block");
+					if(ID > 0)
+						$("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn.png");
 				});
-				$("#ImgBt2").click(function(e)
+				$("#ImgBtSu").mousedown(function(e)
 				{
-					$("#ImgHouse").attr("src","Assets/01_Tab/House_2.png");
-					ID=2;
-					$('#DivImgBtSubmit').css("display","block");
+					if(ID > 0)
+						$("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn_OnClick.png");
 				});
-				$("#ImgBt3").click(function(e)
-				{
-					$("#ImgHouse").attr("src","Assets/01_Tab/House_3.png");
-					ID=3;
-					$('#DivImgBtSubmit').css("display","block");
-				});
-				$("#ImgBt4").click(function(e)
-				{
-					$("#ImgHouse").attr("src","Assets/01_Tab/House_4.png");
-					ID=4;
-					$('#DivImgBtSubmit').css("display","block");
-				});
-				$("#ImgBt5").click(function(e)
-				{
-					$("#ImgHouse").attr("src","Assets/01_Tab/House_5.png");
-					ID=5;
-					$('#DivImgBtSubmit').css("display","block");
-				});
-
-				$("#ImgBtSu").mouseup(function(e){ $("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn.png"); });
-				$("#ImgBtSu").mousedown(function(e){ $("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn_OnClick.png"); });
 				$("#ImgBtSu").click(function(e)
 				{
-					if(ID == 0)
-					{
-						alert("Please select your color, first!!");
-					}
-					else
+					if(ID > 0)
 					{
 						FB.api('/me', function(response)
 						{
@@ -216,21 +135,22 @@
 				$("#ImgBtClose").mousedown(function(e){ $("#ImgBtClose").attr("src","Assets/03_Post_Donate/Close_OnClick.png"); });
 				$("#ImgBtClose").click(function(e){ $('#PopupCanvas').trigger('close'); });
 				
-				$("button").click(function(e)
+				$("#FBLike").click(function(e)
 				{
-//					if( e )
 					$("#IndexPage").hide();
 					$("#SubmitPage").show();
 				});
 			});
 			
-			function GotoSubmitPage()
+			function GotoSubmitPage()// onclick="GotoSubmitPage()"
 			{
 				$("#IndexPage").hide();
 				$("#SubmitPage").show();
 			}
 			
-
+var iframe = $('.fb-like')[0].childNodes[0].childNodes[0];
+alert( "Frame title: " + iframe.contentWindow.title );
+  
         </script>
 <title>Valspar</title>
 </head>
@@ -238,13 +158,21 @@
 <body>
 
 <div id="IndexPage">
-	<div id="FongateCanvas"><img src="Assets/00_Fangate/00Fangate_BG.png" onclick="GotoSubmitPage()"/>
-		<div class="objinside" id="ImgLike">
+	<div id="FongateCanvas">
+    	<img src="Assets/00_Fangate/00Fangate_BG.png"  /><!--style="cursor:pointer;"-->
+		<span class="objinside" id="ImgLink">
+        	<a href="http://www.loveyourcolor.com/">
+            	<img src="Assets/00_Fangate/loveyourcolor_link.png" id="loveyourcolor" />
+            </a>
+        </span>
+        <div class="objinside" id="ImgLike">
+        	<img src="Assets/00_Fangate/LikeBtn.png" id="FBLike" />
         	<!--a href="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fapps.facebook.com%2Fvalspar&send=false&layout=button_count&width=113&show_faces=false&action=like&colorscheme=light&font=arial&height=21&appId=492668300762232">
-        		<img src="Assets/00_Fangate/LikeBtn.png" id="FBLike" />
+        		
             </a-->
-        	<div class="fb-like" data-href="https://apps.facebook.com/valspar" data-send="false" data-layout="button_count" data-width="113" data-show-faces="false" data-font="arial"></div>
+       	  <!--div class="fb-like" data-href="https://apps.facebook.com/valspar" data-send="false" data-layout="button_count" data-width="113" data-show-faces="false" data-font="arial"></div-->
     	</div>
+		<div class="objinside" id="ImgLink"></div>
     </div>
 </div>
 
@@ -252,13 +180,13 @@
 	<div id="MainCanvas">
 		<div class="objinside" id="DivImgHouse"><img src="" id="ImgHouse" /></div>
 
-		<div class="objinside" id="DivImgColor1"><img src="Assets/01_Tab/Color_1.png" id="ImgBt1" /></div>
-		<div class="objinside" id="DivImgColor2"><img src="Assets/01_Tab/Color_2.png" id="ImgBt2" /></div>
-		<div class="objinside" id="DivImgColor3"><img src="Assets/01_Tab/Color_3.png" id="ImgBt3" /></div>
-		<div class="objinside" id="DivImgColor4"><img src="Assets/01_Tab/Color_4.png" id="ImgBt4" /></div>
-		<div class="objinside" id="DivImgColor5"><img src="Assets/01_Tab/Color_5.png" id="ImgBt5" /></div>
+		<div class="objinside" id="DivImgColor1"><img src="Assets/01_Tab/Color_1.png" id="ImgBt01" /></div>
+		<div class="objinside" id="DivImgColor2"><img src="Assets/01_Tab/Color_2.png" id="ImgBt02" /></div>
+		<div class="objinside" id="DivImgColor3"><img src="Assets/01_Tab/Color_3.png" id="ImgBt03" /></div>
+		<div class="objinside" id="DivImgColor4"><img src="Assets/01_Tab/Color_4.png" id="ImgBt04" /></div>
+		<div class="objinside" id="DivImgColor5"><img src="Assets/01_Tab/Color_5.png" id="ImgBt05" /></div>
         
-		<div class="objinside" id="DivImgBtSubmit"><img src="Assets/01_Tab/Submit_Btn.png" id="ImgBtSu" /></div>
+		<div class="objinside" id="DivImgBtSubmit"><img src="Assets/01_Tab/Submit_Btn_Disabled.png" id="ImgBtSu" /></div>
 		<div class="objinside" id="DivImgBtText"><img src="Assets/01_Tab/LoveYourColor.png" id="ImgBtTx" /></div>
 	</div>
     <div class="objinside" id="PopupCanvas">
