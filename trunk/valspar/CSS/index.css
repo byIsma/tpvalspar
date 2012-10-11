@@ -13,7 +13,7 @@
 
 .objinside
 {
-	position:absolute;
+	position: absolute;
 }
 
 /* Page Background */
@@ -23,11 +23,12 @@
 	position:relative;
 	margin-left:auto;
 	margin-right:auto;
-}#MainCanvas
+}
+#MainCanvas
 {
 	background-image:url(../Assets/01_Tab/Tab_BG.png);
 	width:928px;
-	height:1061px;
+	height:1135px;
 	position:relative;
 	margin-left:auto;
 	margin-right:auto;
@@ -48,28 +49,33 @@
 /* Button Position*/
 	/* Fangate */
 /**/
-#ImgLike{left:186px; top:160px;}
+/*
+#ImgLike{left:132px; top:132px;}
+/*/
+#ImgLike{left:100px; top:117px; cursor:pointer;}
+
+#ImgLink{left: 164px;top: 571px; cursor:pointer;}
 /*/
 #ImgLike{left:146px; top:146px;}
 /**/
 	/* End of Fangate */
 
 	/* Tab */
-#DivImgColor1{left:415px; top:490px; cursor:pointer;}
-#DivImgColor2{left:575px; top:490px; cursor:pointer;}
-#DivImgColor3{left:735px; top:490px; cursor:pointer;}
-#DivImgColor4{left:495px; top:630px; cursor:pointer;}
-#DivImgColor5{left:655px; top:630px; cursor:pointer;}
+#DivImgColor1{left:60px; top:330px; cursor:pointer;}
+#DivImgColor2{left:220px; top:330px; cursor:pointer;}
+#DivImgColor3{left:380px; top:330px; cursor:pointer;}
+#DivImgColor4{left:140px; top:470px; cursor:pointer;}
+#DivImgColor5{left:300px; top:470px; cursor:pointer;}
 
-#DivImgHouse{left:57px; top:464px;}
+#DivImgHouse{left:557px; top:296px;}
 
-#DivImgBtSubmit{left:487px; top:758px; display:none;}
-#DivImgBtText{left:46px; top:907px;}
+#DivImgBtSubmit{left:596px; top:600px;}
+#DivImgBtText{left:27px; top:922px; cursor:pointer;}
 	/* End of Tab */
 	
 	/* Post Donate Screen */
-#DivImgBtFB{left:75px; top:132px;}
-#DivImgBtTW{left:179px; top:132px;}
-#DivImgBtClose{left:290px; top:12px;}
+#DivImgBtFB{left:75px; top:132px; cursor:pointer;}
+#DivImgBtTW{left:179px; top:132px; cursor:pointer;}
+#DivImgBtClose{left:290px; top:12px; cursor:pointer;}
 	/* End of Post Donate Screen */
 /* End of Button Position*/
