@@ -62,6 +62,8 @@
 					{
 						if (response && response.post_id)
 						{
+							$('#PopupCanvas').trigger('close');
+							
 							$.post( 'https://valspar.thetigerparty.com/Valspar/SQL.php',	{"SubmitID": SubmitID}, function(data)
 							{
 							});
@@ -74,7 +76,9 @@
 				});
 				$("#ImgBtTW").click(function(e)
 				{
-					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID+"&SubmitID="+SubmitID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=550,height=300');		
+					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID+"&SubmitID="+SubmitID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=550,height=300');
+
+					$('#PopupCanvas').trigger('close');		
 				});
 		
 				
