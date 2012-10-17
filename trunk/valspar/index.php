@@ -79,6 +79,8 @@ if($user)
 					cookie     : true, // enable cookies to allow the server to access the session
 					xfbml      : true  // parse XFBML
 				});
+				//FB.Canvas.setAutoResize();
+				FB.Canvas.setAutoGrow();
 			};
 			// Load the SDK Asynchronously
 			(function(d)
@@ -209,7 +211,7 @@ if($user)
 <title>Valspar</title>
 </head>
 
-<body>
+<body style="overflow:hidden">
 
 <div class="SliderImage" align="center">
 	<div class="slider" style="width:800px; height:600px; overflow:hidden">
