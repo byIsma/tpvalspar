@@ -27,6 +27,7 @@
 					cookie     : true, // enable cookies to allow the server to access the session
 					xfbml      : true  // parse XFBML
 				});
+				FB.Canvas.setAutoGrow();
 			};
 
 				var ID = 0;
@@ -159,18 +160,18 @@ alert( "Frame title: " + iframe.contentWindow.title );
 <title>Valspar</title>
 </head>
 
-<body>
+<body style="overflow:hidden">
 
 <div id="IndexPage">
 	<div id="FongateCanvas">
     	<img src="Assets/00_Fangate/00Fangate_BG.png"  /><!--style="cursor:pointer;"-->
 		<span class="objinside" id="ImgLink">
         	<a href="http://www.loveyourcolor.com/">
-            	<img src="Assets/00_Fangate/loveyourcolor_link.png" id="loveyourcolor" />
+            	<img src="Assets/00_Fangate/loveyourcolor_link.png" id="loveyourcolor" style="border:0 none;"/>
             </a>
         </span>
         <div class="objinside" id="ImgLike">
-        	<img src="Assets/00_Fangate/LikeBtn.png" id="FBLike" />
+        	<img src="Assets/00_Fangate/LikeBtn.png" id="FBLike" style="border:0 none;"/>
         	<!--a href="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fapps.facebook.com%2Fvalspar&send=false&layout=button_count&width=113&show_faces=false&action=like&colorscheme=light&font=arial&height=21&appId=492668300762232">
         		
             </a-->
@@ -179,7 +180,7 @@ alert( "Frame title: " + iframe.contentWindow.title );
 		<div class="objinside" id="ImgLink"></div>
     </div>
 </div>
-
+ 
 <div id="SubmitPage">
 	<div id="MainCanvas">
 		<div class="objinside" id="DivImgHouse"><img src="" id="ImgHouse" /></div>
@@ -191,7 +192,11 @@ alert( "Frame title: " + iframe.contentWindow.title );
 		<div class="objinside" id="DivImgColor5"><img src="Assets/01_Tab/Color_5.png" id="ImgBt05" /></div>
         
 		<div class="objinside" id="DivImgBtSubmit"><img src="Assets/01_Tab/Submit_Btn_Disabled.png" id="ImgBtSu" /></div>
-		<div class="objinside" id="DivImgBtText"><a target="_blank" href="http://www.loveyourcolor.com/"><img src="Assets/01_Tab/LoveYourColor.png" id="ImgBtTx" border="0" /></a></div>
+		<div class="objinside" id="DivImgBtText">
+			<a target="_blank" href="http://www.loveyourcolor.com/">
+				<img src="Assets/01_Tab/LoveYourColor.png" id="ImgBtTx" style="border:0 none;" />
+			</a>
+		</div>
 	</div>
     <div class="objinside" id="PopupCanvas">
 		<!--div style="position:absolute; left:64px; top:472px"><img src="Assets/03_Post_Donate/Post_Donate_BG.png" id="FBLike" /></div-->
