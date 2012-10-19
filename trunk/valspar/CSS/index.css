@@ -54,7 +54,7 @@
 /*/
 #ImgLike{left:100px; top:117px; cursor:pointer;}
 
-#ImgLink{left: 164px;top: 571px; cursor:pointer;}
+#ImgLink{left: 164px;top: 587px; cursor:pointer;}
 /*/
 #ImgLike{left:146px; top:146px;}
 /**/
@@ -71,6 +71,7 @@
 
 #DivImgBtSubmit{left:596px; top:600px;}
 #DivImgBtText{left:27px; top:922px; cursor:pointer;}
+
 	/* End of Tab */
 	
 	/* Post Donate Screen */
@@ -79,3 +80,8 @@
 #DivImgBtClose{left:290px; top:12px; cursor:pointer;}
 	/* End of Post Donate Screen */
 /* End of Button Position*/
+
+@-moz-document url-prefix()
+{
+	#ImgLink{left: 164px;top: 583px; cursor:pointer;}
+}
