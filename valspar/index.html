@@ -35,6 +35,8 @@
 
 			$(document).ready(function(e)
 			{
+				var colorname;
+				
 				$("#EMShare").click(function(e)
 				{
 //					var RTFBody = $('.item').attr("src");
@@ -56,7 +58,7 @@
 						link: 'https://apps.facebook.com/valspar',
 						picture: 'http://valspar.thetigerparty.com/Valspar/Assets/Facebook_Twitter_Icons/Color_'+ID+'_icon.png',
 						name: 'Valspar Love Your Color Guarantee Project',
-						caption: 'As a part of the Valspar Love Your Color Guarantee Project, I helped guarantee a donation to Habitat for Humanity by painting this house Cool Rain.',
+						caption: 'As a part of the Valspar Love Your Color Guarantee Project, I helped guarantee a donation to Habitat for Humanity by painting this house Valspar ' + colorname + '.',
 						description: 'You can help, too!'
 					},
 					function(response)
@@ -64,7 +66,7 @@
 						if (response && response.post_id)
 						{
 							$('#PopupCanvas').trigger('close');
-							
+							//window.location.href = "thankyou.php";	
 							$.post( 'https://valspar.thetigerparty.com/Valspar/SQL.php',	{"SubmitID": SubmitID}, function(data)
 							{
 							});
@@ -79,7 +81,8 @@
 				{
 					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID+"&SubmitID="+SubmitID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=550,height=300');
 
-					$('#PopupCanvas').trigger('close');		
+					$('#PopupCanvas').trigger('close');	
+					//window.location.href = "thankyou.php";	
 				});
 		
 				
@@ -96,6 +99,7 @@
 					$("#ImgHouse").attr("src","Assets/01_Tab/House_"+ID+".png");
 					$("#ImgBtSu").attr("src","Assets/01_Tab/Submit_Btn.png");
 					$("#ImgBtSu").css("cursor","pointer");
+					colorname = $(this).attr("data");
 				});
 
 				$("#FBLike").mouseout(function(e){ $("#FBLike").attr("src","Assets/00_Fangate/LikeBtn.png"); });
@@ -124,21 +128,31 @@
 				{
 					if(ID > 0)
 					{
-						FB.api('/me', function(response)
-						{
-							$.post( 'https://valspar.thetigerparty.com/Valspar/SQLSubmit.php',	{"Name": response.name, "Email": response.email, "PictureSelect": ID}, function(data)
-							{
-								SubmitID = data.split("\n")[2];
-								$('#PopupCanvas').lightbox_me({centered: true});
+								FB.api('/me', function(response)
+								{
+									$.post( 'https://valspar.thetigerparty.com/Valspar/SQLSubmit.php',	{"Name": response.name, "Email": response.email, "PictureSelect": ID}, function(data)
+									{
+										SubmitID = data.split("\n")[2];
 
-							});
-						});
+										$('#PopupCanvas').lightbox_me({
+											centered: true,
+											onClose: function(){
+												//window.location.href = "thankyou.php";
+											}
+										}); 
+									});
+								});
+						
+						
 					}
 				});
 				
 				$("#ImgBtClose").mouseup(function(e){ $("#ImgBtClose").attr("src","Assets/03_Post_Donate/Close.png"); });
 				$("#ImgBtClose").mousedown(function(e){ $("#ImgBtClose").attr("src","Assets/03_Post_Donate/Close_OnClick.png"); });
-				$("#ImgBtClose").click(function(e){ $('#PopupCanvas').trigger('close'); });
+				$("#ImgBtClose").click(function(e){ 
+					$('#PopupCanvas').trigger('close'); 
+					
+				});
 				
 				$("#FBLike").click(function(e)
 				{
@@ -160,7 +174,7 @@ alert( "Frame title: " + iframe.contentWindow.title );
 <title>Valspar</title>
 </head>
 
-<body style="overflow:hidden">
+<body>
 
 <div id="IndexPage">
 	<div id="FongateCanvas">
@@ -185,11 +199,11 @@ alert( "Frame title: " + iframe.contentWindow.title );
 	<div id="MainCanvas">
 		<div class="objinside" id="DivImgHouse"><img src="" id="ImgHouse" /></div>
 
-		<div class="objinside" id="DivImgColor1"><img src="Assets/01_Tab/Color_1.png" id="ImgBt01" /></div>
-		<div class="objinside" id="DivImgColor2"><img src="Assets/01_Tab/Color_2.png" id="ImgBt02" /></div>
-		<div class="objinside" id="DivImgColor3"><img src="Assets/01_Tab/Color_3.png" id="ImgBt03" /></div>
-		<div class="objinside" id="DivImgColor4"><img src="Assets/01_Tab/Color_4.png" id="ImgBt04" /></div>
-		<div class="objinside" id="DivImgColor5"><img src="Assets/01_Tab/Color_5.png" id="ImgBt05" /></div>
+		<div class="objinside" id="DivImgColor1"><img src="Assets/01_Tab/Color_1.png" id="ImgBt01" data="COOL RAIN"/></div>
+		<div class="objinside" id="DivImgColor2"><img src="Assets/01_Tab/Color_2.png" id="ImgBt02" data="MARTIN"/></div>
+		<div class="objinside" id="DivImgColor3"><img src="Assets/01_Tab/Color_3.png" id="ImgBt03" data="POOL PARTY"/></div>
+		<div class="objinside" id="DivImgColor4"><img src="Assets/01_Tab/Color_4.png" id="ImgBt04" data="SONIC PLUM"/></div>
+		<div class="objinside" id="DivImgColor5"><img src="Assets/01_Tab/Color_5.png" id="ImgBt05" data="RASPBERRY SORBET"/></div>
         
 		<div class="objinside" id="DivImgBtSubmit"><img src="Assets/01_Tab/Submit_Btn_Disabled.png" id="ImgBtSu" /></div>
 		<div class="objinside" id="DivImgBtText">
