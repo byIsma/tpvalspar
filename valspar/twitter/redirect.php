@@ -20,7 +20,7 @@ $_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
 switch ($connection->http_code) {
   case 200:
     /* Build authorize URL and redirect user to Twitter. */
-    $url = $connection->getAuthorizeURL($token);
+    $url = $connection->getAuthorizeURL($token); 
     header('Location: ' . $url); 
     break;
   default:

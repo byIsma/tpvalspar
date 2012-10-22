@@ -10,19 +10,21 @@ if( !isset( $_GET['ID'] ))
 }
 /* Load required lib files. */
 session_start();
+ 
 require_once('twitteroauth/tmhOAuth.php');
 require_once('twitteroauth/tmhUtilities.php');
 
 require_once('twitteroauth/twitteroauth.php');
 require_once('config.php');
 
+
 /* If access tokens are not available redirect to connect page. */
 if (empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_token']) || empty($_SESSION['access_token']['oauth_token_secret'])) {
-    header('Location: ./clearsessions.php?ID='.$_GET['ID'].'SubmitID='.$_GET['SubmitID']);
+    header('Location: ./redirect.php?ID='.$_GET['ID'].'&SubmitID='.$_GET['SubmitID']);
 }
 /* Get user access tokens out of the session. */
 $access_token = $_SESSION['access_token'];
-
+ 
 /* Create a TwitterOauth object with consumer/user tokens. */
 //$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
 $connection = new tmhOAuth(array(
@@ -59,11 +61,11 @@ echo '
 <script src="../js/jquery-latest.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(e)
-	{
+	{  
 		$("#ImgBtTW").click(function(e)
 		{
 			var String = escape($("#MyString").val());//.replace(/\//g,"%2F");
-			$.post( "index.php?ID='.$_GET['ID'].'&String="+String+"&SubmitID='.$_GET['SubmitID'].'",
+			$.post( "index.php?ID='.$_GET['ID'].'&String="+String+"&SubmitID='.$_SESSION['SID'].'",
 			function(data)
 			{
 //				data = data;
