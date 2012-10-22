@@ -68,7 +68,7 @@
 						{
 							$('#PopupCanvas').trigger('close');
 							//window.location.href = "thankyou.php";	
-							$.post( 'http://valspar.thetigerparty.com/Valspar/SQL.php',	{"SubmitID": SubmitID}, function(data)
+							$.post( 'https://valspar.thetigerparty.com/Valspar/SQL.php',	{"SubmitID": SubmitID}, function(data)
 							{
 							});
 						}
@@ -80,7 +80,7 @@
 				});
 				$("#ImgBtTW").click(function(e)
 				{
-					window.open( "http://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID+"&SubmitID="+SubmitID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=550,height=300');
+					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID+"&SubmitID="+SubmitID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=550,height=300');
 					 
 					$('#PopupCanvas').trigger('close');	
 					//window.location.href = "thankyou.php";	
@@ -131,7 +131,7 @@
 					{
 						FB.api('/me', function(response)
 								{
-									$.post( 'http://valspar.thetigerparty.com/Valspar/SQLSubmit.php',	{"Name": response.name, "Email": response.email, "PictureSelect": ID}, function(data)
+									$.post( 'https://valspar.thetigerparty.com/Valspar/SQLSubmit.php',	{"Name": response.name, "Email": response.email, "PictureSelect": ID}, function(data)
 									{
 										SubmitID = data.split("\n")[2];
 										 
@@ -157,8 +157,29 @@
 				
 				$("#FBLike").click(function(e)
 				{
-					$("#IndexPage").hide();
-					$("#SubmitPage").show();
+					FB.getLoginStatus(function(response) {
+				        var status = response.status;
+							if (status == 'connected') {
+								// logged in and connected user
+								$("#IndexPage").hide();
+								$("#SubmitPage").show();
+							} else if(status == 'notConnected') {
+								// logged in but not connected to your app
+							} else {
+							                // not logged in at all
+								FB.login(function(response) {
+									   if (response.authResponse) {
+									     FB.api('/me', function(response) {
+									    	 $("#IndexPage").hide();
+											 $("#SubmitPage").show();
+									     });
+									   } else {
+									     console.log('User cancelled login or did not fully authorize.');
+									   }
+								}, {scope: 'email,user_likes,publish_actions'});
+					        }
+					});
+					
 				});
 			});
 			
