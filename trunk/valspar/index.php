@@ -8,6 +8,8 @@ $headers = "From:" . $from;
 mail($to,$subject,$message,$headers);
 echo "Mail Sent.";
 */
+header( 'Location: index.html' ) ;
+
 require './facebook/src/facebook.php';
 
 // Create our Application instance (replace this with your appId and secret).
