@@ -8,7 +8,7 @@
 
 #SubmitPage
 {
-	display:none;
+	/* display:none; */
 }
 
 .objinside
@@ -52,25 +52,25 @@
 /*
 #ImgLike{left:132px; top:132px;}
 /*/
-#ImgLike{left:100px; top:117px; cursor:pointer;}
+#ImgLike{left:100px; top:117px;}
 
-#ImgLink{left: 164px;top: 587px; cursor:pointer;}
+#ImgLink{left: 164px;top: 587px;}
 /*/
 #ImgLike{left:146px; top:146px;}
 /**/
 	/* End of Fangate */
 
 	/* Tab */
-#DivImgColor1{left:60px; top:330px; cursor:pointer;}
-#DivImgColor2{left:220px; top:330px; cursor:pointer;}
-#DivImgColor3{left:380px; top:330px; cursor:pointer;}
-#DivImgColor4{left:140px; top:470px; cursor:pointer;}
-#DivImgColor5{left:300px; top:470px; cursor:pointer;}
+#DivImgColor1{left:60px; top:290px; cursor:pointer;}
+#DivImgColor2{left:220px; top:290px; cursor:pointer;}
+#DivImgColor3{left:380px; top:290px; cursor:pointer;}
+#DivImgColor4{left:140px; top:420px; cursor:pointer;}
+#DivImgColor5{left:300px; top:420px; cursor:pointer;}
 
-#DivImgHouse{left:557px; top:296px;}
+#DivImgHouse{left:487px; top:258px;}
 
-#DivImgBtSubmit{left:596px; top:600px;}
-#DivImgBtText{left:27px; top:922px; cursor:pointer;}
+#DivImgBtSubmit{left:520px; top:525px;}
+#DivImgBtText{left:23px; top:800px; cursor:pointer;}
 
 	/* End of Tab */
 	
