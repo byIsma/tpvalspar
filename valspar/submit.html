@@ -32,9 +32,9 @@
 			
 			
 			
-				var ID = 0;
-				var SubmitID = 0;
-				var UserId = 0;
+			var ID = 0;
+			var SubmitID = 0; 
+			
 			$(document).ready(function(e)
 			{
 				var colorname;
@@ -48,7 +48,7 @@
 //					window.open( "mailto:?subject=AAA&body=BBB&body=<img src=\""+$('.item').attr("src")+"\"/>");
 					FB.api('/me', function(response)
 					{
-						window.open( "https://valspar.thetigerparty.com/Valspar/ShareByMail.php?ID="+ID+"&Name="+response.name+"&Email="+response.email, 
+						window.open( "ShareByMail.php?ID="+ID+"&Name="+response.name+"&Email="+response.email, 
 									"Share Mail",
 									'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=150,height=150');
 					});
@@ -74,7 +74,7 @@
 											{
 												$('#PopupCanvas').trigger('close');
 												//window.location.href = "thankyou.php";	
-												$.post( 'https://valspar.thetigerparty.com/Valspar/SQL.php',	{"SubmitID": SubmitID}, function(data)
+												$.post( 'SQL.php',	{"SubmitID": SubmitID}, function(data)
 												{
 												});
 											}
@@ -92,7 +92,7 @@
 				});
 				$("#ImgBtTW").click(function(e)
 				{
-					window.open( "https://valspar.thetigerparty.com/Valspar/twitter/index2.php?ID="+ID+"&SubmitID="+SubmitID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=550,height=300');
+					window.open( "twitter/index2.php?ID="+ID+"&SubmitID="+SubmitID, "Share Twitter",'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=550,height=300');
 					 
 					$('#PopupCanvas').trigger('close');	
 					//window.location.href = "thankyou.php";	
@@ -155,7 +155,7 @@
 									//	}); 
 									//});
 								 
-									$.post( 'https://valspar.thetigerparty.com/Valspar/SQLSubmit.php',	{"PictureSelect": ID}, function(data)
+									$.post( 'SQLSubmit.php',	{"PictureSelect": ID}, function(data)
 									{
 										SubmitID = data.split("\n")[2];
 										 
@@ -199,7 +199,7 @@
  
 <div id="SubmitPage">
 	<div id="MainCanvas">
-		<div class="objinside" id="DivImgHouse"><img src="" id="ImgHouse" /></div>
+		<div class="objinside" id="DivImgHouse"><img src="Assets/white.png" id="ImgHouse" /></div>
 
 		<div class="objinside" id="DivImgColor1"><img src="Assets/01_Tab/Color_1.png" id="ImgBt01" data="COOL RAIN"/></div>
 		<div class="objinside" id="DivImgColor2"><img src="Assets/01_Tab/Color_2.png" id="ImgBt02" data="MARTIAN"/></div>

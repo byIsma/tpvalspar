@@ -59,8 +59,7 @@
 		{
 			echo "<table border='1' id='table' align='center'>
 					<tr bgcolor='#CCCCCC'>
-						<td>Name</td>
-						<td>Email</td>
+						<td style='width:100px'>Id</td> 
 						<td align='center'>Selected Pictures</td>
 						<td>Submit Date</td>
 						<td align='center'>Facebook Shared</td>
@@ -70,8 +69,7 @@
 			while( $row = @mysql_fetch_array($result) )
 			{
 				echo "<tr>";
-				echo '	<td>'.$row['Name'].'</td>
-						<td>'.$row['Email'].'</td>
+				echo '	<td>'.$row['idSubmitList'].'</td> 
 						<td>'.$row['PictureSelect'].'</td>
 						<td>'.$row['Date'].'</td>
 						<td>'.$row['Facebook'].'</td>

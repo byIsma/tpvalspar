@@ -27,6 +27,7 @@
 #MainCanvas
 {
 	background-image:url(../Assets/01_Tab/Tab_BG.png);
+	background-repeat:no-repeat;
 	width:928px;
 	height:1160px;
 	position:relative;
@@ -52,7 +53,7 @@
 /*
 #ImgLike{left:132px; top:132px;}
 /*/
-#ImgLike{left:100px; top:117px;}
+#ImgLike{left:88px; top:102px;}
 
 #ImgLink{left: 164px;top: 587px;}
 /*/
