@@ -77,9 +77,10 @@ echo '
 </head>
 <body>
 <div style="background-image:url(../Assets/Facebook_Twitter_Icons/Twitter_BG.png); width:546px; height:297px">
-	<div style="position: absolute; top: 110px; left: 24px; width: 501px; height: 53px;">
+	<div style="position: absolute; top: 115px; left: 32px; width: 501px; height: 53px;">
 		<!--textarea rows="4" cols="70" id="MyString">I helped @Valspar_Paint guarabtee a donation to @Habitat_org through #LoveYourColorProject-You Can, too! https://apps.facebook.com/valspar/</textarea-->
-		<textarea rows="4" cols="70" id="MyString">Share @Valspar_Paint @Habitat_org #LoveYourColorProject https://apps.facebook.com/valspar/</textarea>
+		<textarea rows="4" cols="70" id="MyString" style="width:502px;height:60px;border:0 none;">I helped @Valspar_Paint guarantee a donation to @Habitat_org through #LoveYourColorProject - You can too!			https://www.facebook.com/ValsparPaint/app_492668300762232
+		</textarea>
 	</div>
 	<div style="position: absolute; top: 185px; left: 29px;">
 		<img src="../Assets/Facebook_Twitter_Icons/Color_'.$_GET['ID'].'_icon.png" width="50px"/>

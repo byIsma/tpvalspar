@@ -44,7 +44,7 @@ for ( $i = 1 ; $i <= 5 ; $i++ )
 	}
 }
 
-$query = sprintf('SELECT Name, Email, PictureSelect, Date, Facebook, Twitter FROM submitlist');
+$query = sprintf('SELECT idSubmitList, PictureSelect, Date, Facebook, Twitter FROM submitlist');
 $result = mysql_query($query);
 
 $row = mysql_fetch_assoc($result);
