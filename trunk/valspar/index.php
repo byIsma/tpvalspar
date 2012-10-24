@@ -38,8 +38,7 @@ if ($like_status) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="CSS/index.css" />
-        <script src="js/jquery-latest.js"></script>
-        <script src="js/jquery.lightbox_me.js"></script>
+        <script src="js/jquery-latest.js"></script> 
          <script>
 			function grow()
 			{
@@ -83,30 +82,7 @@ if ($like_status) {
 		<div class="objinside" id="ImgLink"></div>
     </div>
 </div>
- 
-<!-- <div id="SubmitPage">
-	<div id="MainCanvas">
-		<div class="objinside" id="DivImgHouse"><img src="" id="ImgHouse" /></div>
-
-		<div class="objinside" id="DivImgColor1"><img src="Assets/01_Tab/Color_1.png" id="ImgBt01" data="COOL RAIN"/></div>
-		<div class="objinside" id="DivImgColor2"><img src="Assets/01_Tab/Color_2.png" id="ImgBt02" data="MARTIAN"/></div>
-		<div class="objinside" id="DivImgColor3"><img src="Assets/01_Tab/Color_3.png" id="ImgBt03" data="POOL PARTY"/></div>
-		<div class="objinside" id="DivImgColor4"><img src="Assets/01_Tab/Color_4.png" id="ImgBt04" data="SONIC PLUM"/></div>
-		<div class="objinside" id="DivImgColor5"><img src="Assets/01_Tab/Color_5.png" id="ImgBt05" data="RASPBERRY SORBET"/></div>
-        
-		<div class="objinside" id="DivImgBtSubmit"><img src="Assets/01_Tab/Submit_Btn_Disabled.png" id="ImgBtSu" /></div>
-		<div class="objinside" id="DivImgBtText">
-			<a target="_blank" href="http://www.loveyourcolor.com/">
-				<img src="Assets/01_Tab/LoveYourColor.png" id="ImgBtTx" style="border:0 none;" />
-			</a>
-		</div>
-	</div>
-    <div class="objinside" id="PopupCanvas">
-		<!--div style="position:absolute; left:64px; top:472px"><img src="Assets/03_Post_Donate/Post_Donate_BG.png" id="FBLike" /> 
-		<div class="objinside" id="DivImgBtFB"><img src="Assets/03_Post_Donate/Facebook_Share.png" id="ImgBtFB" /></div>
-		<div class="objinside" id="DivImgBtTW"><img src="Assets/03_Post_Donate/Tweet.png" id="ImgBtTW" /></div>
-		<div class="objinside" id="DivImgBtClose"><img src="Assets/03_Post_Donate/Close.png" id="ImgBtClose" /></div>
-    </div> -->
+  
 </div>
 
 </body>
