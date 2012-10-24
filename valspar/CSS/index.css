@@ -13,9 +13,10 @@
 
 .objinside
 {
-	position: absolute;
+	position: absolute; 
 }
 
+ 
 /* Page Background */
 #FongateCanvas
 {
@@ -86,3 +87,7 @@
 {
 	#ImgLink{left: 164px;top: 583px; cursor:pointer;}
 }
+
+foo, x:-moz-any-link, x:default { 
+	
+} 
