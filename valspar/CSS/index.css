@@ -8,19 +8,18 @@
 
 #SubmitPage
 {
-	/* display:none; */
+	 
 }
 
 .objinside
 {
-	position: absolute; 
+	position: absolute;
 }
 
- 
 /* Page Background */
 #FongateCanvas
 {
-	width:928px;
+	width:810px;
 	position:relative;
 	margin-left:auto;
 	margin-right:auto;
@@ -29,8 +28,12 @@
 {
 	background-image:url(../Assets/01_Tab/Tab_BG.png);
 	background-repeat:no-repeat;
-	width:928px;
+	
+	width:810px; 
 	height:1160px;
+
+
+
 	position:relative;
 	margin-left:auto;
 	margin-right:auto;
@@ -38,6 +41,7 @@
 #PopupCanvas
 {
 	background-image:url(../Assets/03_Post_Donate/Post_Donate_BG.png);
+	background-repeat:no-repeat;
 	width:330px;
 	height:190px;
 	display:none;
@@ -54,9 +58,9 @@
 /*
 #ImgLike{left:132px; top:132px;}
 /*/
-#ImgLike{left:88px; top:102px;}
+#ImgLike{left:80px; top:100px; }
 
-#ImgLink{left: 164px;top: 587px;}
+#ImgLink{left: 143px;top: 512px; }
 /*/
 #ImgLike{left:146px; top:146px;}
 /**/
@@ -66,12 +70,12 @@
 #DivImgColor1{left:60px; top:290px; cursor:pointer;}
 #DivImgColor2{left:220px; top:290px; cursor:pointer;}
 #DivImgColor3{left:380px; top:290px; cursor:pointer;}
-#DivImgColor4{left:140px; top:420px; cursor:pointer;}
-#DivImgColor5{left:300px; top:420px; cursor:pointer;}
+#DivImgColor4{left:140px; top:430px; cursor:pointer;}
+#DivImgColor5{left:300px; top:430px; cursor:pointer;}
 
-#DivImgHouse{left:487px; top:258px;}
+#DivImgHouse{left:486px; top:258px;}
 
-#DivImgBtSubmit{left:520px; top:525px;}
+#DivImgBtSubmit{left:520px; top:523px;}
 #DivImgBtText{left:23px; top:800px; cursor:pointer;}
 
 	/* End of Tab */
@@ -85,9 +89,5 @@
 
 @-moz-document url-prefix()
 {
-	#ImgLink{left: 164px;top: 583px; cursor:pointer;}
+	#ImgLink{left: 144px;top: 506px; cursor:pointer;}
 }
-
-foo, x:-moz-any-link, x:default { 
-	
-} 

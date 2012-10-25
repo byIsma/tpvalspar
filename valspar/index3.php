@@ -23,12 +23,12 @@ if($user)
 	$access_token = $facebook->getAccessToken();
 	
 	echo $access_token;
-	
+	var_dump( $user );
 	try {
-//        $ret_obj = $facebook->api('/492668300762232/likes', 'POST',
-//                                    array(
-//                                      'access_token' => $access_token
-//                                 ));
+//*
+        $ret_obj = $facebook->api( '/462584513764434/likes', 'post',
+								array('access_token' => $access_token) );
+/*/
 $attachment =  array(
 'access_token' => $access_token,
 'object' => 'https://apps.facebook.com/valspar'
@@ -47,7 +47,7 @@ var_dump( $result );
 var_dump( $ch );
 
 curl_close ($ch);
-
+//*/
       } catch(FacebookApiException $e) {
         // If the user is logged out, you can have a 
         // user ID even though the access token is invalid.
@@ -56,7 +56,7 @@ curl_close ($ch);
         $login_url = $facebook->getLoginUrl( array(
                        'scope' => 'publish_stream'
                        )); 
-        echo 'Please <a href="' . $login_url . '">login.</a>';
+        echo 'Please <a href="' . $login_url . '">log in.</a>';
 		var_dump($e);
 		echo $e->xdebug_message;
         error_log($e->getType());

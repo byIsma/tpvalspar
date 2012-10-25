@@ -14,13 +14,14 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+require "bootstrap.php";
 
 class PHPSDKTestCase extends PHPUnit_Framework_TestCase {
-  const APP_ID = '117743971608120';
-  const SECRET = '943716006e74d9b9283d4d5d8ab93204';
+  const APP_ID = '492668300762232';
+  const SECRET = 'b637c96d95926c23f6d38835296951ac';
 
-  const MIGRATED_APP_ID = '174236045938435';
-  const MIGRATED_SECRET = '0073dce2d95c4a5c2922d1827ea0cca6';
+  const MIGRATED_APP_ID = '492668300762232';
+  const MIGRATED_SECRET = 'b637c96d95926c23f6d38835296951ac';
 
   private static $kExpiredAccessToken = '206492729383450|2.N4RKywNPuHAey7CK56_wmg__.3600.1304560800.1-214707|6Q14AfpYi_XJB26aRQumouzJiGA';
   private static $kValidSignedRequest = '1sxR88U4SW9m6QnSxwCEw_CObqsllXhnpP5j2pxD97c.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImV4cGlyZXMiOjEyODEwNTI4MDAsIm9hdXRoX3Rva2VuIjoiMTE3NzQzOTcxNjA4MTIwfDIuVlNUUWpub3hYVVNYd1RzcDB1U2g5d19fLjg2NDAwLjEyODEwNTI4MDAtMTY3Nzg0NjM4NXx4NURORHBtcy1nMUM0dUJHQVYzSVdRX2pYV0kuIiwidXNlcl9pZCI6IjE2Nzc4NDYzODUifQ';
