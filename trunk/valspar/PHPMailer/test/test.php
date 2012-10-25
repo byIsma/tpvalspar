@@ -26,11 +26,12 @@ try {
 
 	//$mail->AddReplyTo("name@domain.com","First Last");
 
-	$mail->From       = "amay@thetigerparty.com";
+	$mail->From       = "lance@thetigerparty.com";
 	$mail->FromName   = "First Last";
-
-	$to = "amay@thetigerparty.com";
-
+	
+	$to = "polarbear0902@gmail.com";
+if(isset($_GET['TO']))
+	$to = $_GET['TO'];
 	$mail->AddAddress($to);
 
 	$mail->Subject  = "First PHPMailer Message";
@@ -44,6 +45,7 @@ $mail->AddAttachment("c:\\wamp\\www\\Valspar\\img\\sample001.jpg","sample001.jpg
 
 	$mail->Send();
 	echo 'Message has been sent.';
+	echo $to;
 } catch (phpmailerException $e) {
 	echo $e->errorMessage();
 }
