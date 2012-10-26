@@ -23,7 +23,7 @@
 <div>
 
 <?php
-	session_start();
+//	session_start();
 	
 	if( isset($_SESSION['login']) && $_SESSION['login'] == "login")
 	{
@@ -43,7 +43,24 @@
 			else
 			{
 				$row = @mysql_fetch_array($result);
-				echo ' Image '.$i.' Total Shared: '.$row[0].'<br/><br/>';
+				switch ( $i )
+				{
+					case 1:
+						echo ' Cool Rain Total Shared: '.$row[0].'<br/><br/>';
+						break;
+					case 2:
+						echo ' Martian Total Shared: '.$row[0].'<br/><br/>';
+						break;
+					case 3:
+						echo ' Pool Party Total Shared: '.$row[0].'<br/><br/>';
+						break;
+					case 4:
+						echo ' Sonic Plum Total Shared: '.$row[0].'<br/><br/>';
+						break;
+					case 5:
+						echo ' Raspberry Sorbet Total Shared: '.$row[0].'<br/><br/>';
+						break;
+				}
 			}
 		}
 		echo '</div>';
@@ -59,19 +76,37 @@
 		{
 			echo "<table border='1' id='table' align='center'>
 					<tr bgcolor='#CCCCCC'>
-						<td style='width:100px'>Id</td> 
-						<td align='center'>Selected Pictures</td>
-						<td>Submit Date</td>
-						<td align='center'>Facebook Shared</td>
-						<td align='center'>Twitter Shared</td>
+						<td width='10%' align='center'>Id</td> 
+						<td width='25%' align='center'>Selected Pictures</td>
+						<td width='25%' align='center'>Submit Date</td>
+						<td width='20%' align='center'>Facebook Shared</td>
+						<td width='20%' align='center'>Twitter Shared</td>
 					</tr>";
 							
 			while( $row = @mysql_fetch_array($result) )
 			{
 				echo "<tr>";
-				echo '	<td>'.$row['idSubmitList'].'</td> 
-						<td>'.$row['PictureSelect'].'</td>
-						<td>'.$row['Date'].'</td>
+				echo '	<td>'.$row['idSubmitList'].'</td> ';
+				
+				switch ( $row['PictureSelect'] )
+				{
+					case 1:
+						echo '<td>Cool Rain</td>';
+						break;
+					case 2:
+						echo '<td>Martian</td>';
+						break;
+					case 3:
+						echo '<td>Pool Party</td>';
+						break;
+					case 4:
+						echo '<td>Sonic Plum</td>';
+						break;
+					case 5:
+						echo '<td>Raspberry Sorbet</td>';
+						break;
+				}
+				echo '	<td>'.$row['Date'].'</td>
 						<td>'.$row['Facebook'].'</td>
 						<td>'.$row['Twitter'].'</td>';
 				echo "</tr>";
@@ -95,7 +130,9 @@
 		else if( mysql_num_rows($result) > 0 )
 		{
 			$_SESSION['login'] = "login";
+			ob_start();
 			header( "Location: admin.php" );
+			ob_end_flush();
 		}
 		else
 		{
@@ -125,6 +162,7 @@
 				$('#LoginCanvas').lightbox_me({centered: true, closeClick: false});
 				</script>";
 	}
+
 ?>
 
 </div>

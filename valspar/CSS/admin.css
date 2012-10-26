@@ -28,6 +28,6 @@
 #BtLogin{position:absolute; top:120px; right:40px;}
 
 /*Data Canvas*/
-#Counter{ position:relative; margin-right: auto; margin-left:auto; width: 200px;}
+#Counter{ position:relative; margin-right: auto; margin-left:auto; width: 400px;}
 #SaveToCSV{ position:relative; margin-right: auto; margin-left:auto; left: 15%;}
 #table{ position:relative; margin-right: auto; margin-left:auto;}

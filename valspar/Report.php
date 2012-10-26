@@ -40,7 +40,25 @@ for ( $i = 1 ; $i <= 5 ; $i++ )
 	else
 	{
 		$row = @mysql_fetch_array($result);
-		echo "Image ".$i." Total Share, ".$row[0]."\r\n";
+//		echo "Image ".$i." Total Share, ".$row[0]."\r\n";
+				switch ( $i )
+				{
+					case 1:
+						echo ' Cool Rain Total Shared: '.$row[0]."\r\n";
+						break;
+					case 2:
+						echo ' Martian Total Shared: '.$row[0]."\r\n";
+						break;
+					case 3:
+						echo ' Pool Party Total Shared: '.$row[0]."\r\n";
+						break;
+					case 4:
+						echo ' Sonic Plum Total Shared: '.$row[0]."\r\n";
+						break;
+					case 5:
+						echo ' Raspberry Sorbet Total Shared: '.$row[0]."\r\n";
+						break;
+				}		
 	}
 }
 
@@ -57,6 +75,25 @@ if ($row) {
  */
 
 while ($row) {
+
+				switch ( $row['PictureSelect'] )
+				{
+					case 1:
+						$row['PictureSelect'] = 'Cool Rain';
+						break;
+					case 2:
+						$row['PictureSelect'] = 'Martian';
+						break;
+					case 3:
+						$row['PictureSelect'] = 'Pool Party';
+						break;
+					case 4:
+						$row['PictureSelect'] = 'Sonic Plum';
+						break;
+					case 5:
+						$row['PictureSelect'] = 'Raspberry Sorbet';
+						break;
+				}
     echocsv($row);
     $row = mysql_fetch_assoc($result);
 }
