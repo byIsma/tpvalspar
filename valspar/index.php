@@ -55,14 +55,14 @@ if ($like_status) {
 				});
 			}
 			
-			var iframe = $('.fb-like')[0].childNodes[0].childNodes[0];
-			alert( "Frame title: " + iframe.contentWindow.title );
+//			var iframe = $('.fb-like')[0].childNodes[0].childNodes[0];
+//			alert( "Frame title: " + iframe.contentWindow.title );onLoad="grow();
   
         </script>
 <title>Valspar</title>
 </head>
 
-<body style="width:100%;height:1160px;overflow:hidden;margin:0; padding:0; border:0;" onLoad="grow();">
+<body style="width:100%;height:1160px;overflow:hidden;margin:0; padding:0; border:0;" ">
 
 <div id="IndexPage" style="height:100%">
 	<div id="FongateCanvas">
