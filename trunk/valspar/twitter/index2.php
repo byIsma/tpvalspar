@@ -10,7 +10,7 @@ if( !isset( $_GET['ID'] ))
 }
 /* Load required lib files. */
 session_start();
- 
+
 require_once('twitteroauth/tmhOAuth.php');
 require_once('twitteroauth/tmhUtilities.php');
 
@@ -55,6 +55,20 @@ date_default_timezone_set('GMT');
 
 //$code = $tmhOAuth->request('POST', 'https://api.twitter.com/1.1/statuses/update_with_media.json',https://valspar.thetigerparty.com/Valspar/twitter/
 
+if( isset( $_GET['ID'] ) && isset( $_GET['SubmitID'] ))
+{
+	$ID = $_GET['ID'];
+	$SID = $_GET['SubmitID'];
+}
+else if( isset( $_SESSION['ID'] ) && isset( $_SESSION['SubmitID'] ) )
+{
+	$ID = $_SESSION['ID'];
+	$SID = $_SESSION['SubmitID'];
+}
+else
+{
+	echo "Your App Login Failed, Please Try this App Again.";
+}
 echo '
 <html>
 <head>
@@ -65,7 +79,7 @@ echo '
 		$("#ImgBtTW").click(function(e)
 		{
 			var String = escape($("#MyString").val());//.replace(/\//g,"%2F");
-			$.post( "index.php?ID='.$_GET['ID'].'&String="+String+"&SubmitID='.$_SESSION['SID'].'",
+			$.post( "index.php?ID='.$ID.'&String="+String+"&SubmitID='.$SID.'",
 			function(data)
 			{
 //				data = data;
@@ -76,23 +90,23 @@ echo '
 </script>
 </head>
 <body>
-<div style="background-image:url(../Assets/Facebook_Twitter_Icons/Twitter_BG.png); width:546px; height:297px">
-	<div style="position: absolute; top: 115px; left: 32px; width: 501px; height: 53px;">
+<div style="background-image:url(../Assets/Facebook_Twitter_Icons/Twitter_BG.png); width:524px; height:253px; background-repeat: no-repeat;position: relative;">
+	<div style="position: absolute; top: 75px; left: 22px; width:100%; height:100%">
 		<!--textarea rows="4" cols="70" id="MyString">I helped @Valspar_Paint guarantee a donation to @Habitat_org! You can too: on.fb.me/Qxf2Z4 #LoveYourColorProject</textarea-->
-		<textarea rows="4" cols="70" id="MyString" style="width:502px;height:60px;border:0 none;">I helped @Valspar_Paint guarantee a donation to @Habitat_org! You can too: on.fb.me/Qxf2Z4 #LoveYourColorProject
+		<textarea id="MyString" style="width:90%; height:30%; overflow:visible;">I helped @Valspar_Paint guarantee a donation to @Habitat_org! You can too: on.fb.me/Qxf2Z4 #LoveYourColorProject
 		</textarea>
 	</div>
-	<div style="position: absolute; top: 185px; left: 29px;">
+	<div style="position: absolute; top: 170px; left: 22px;">
 		<img src="../Assets/Facebook_Twitter_Icons/Color_'.$_GET['ID'].'_icon.png" width="50px"/>
 	</div>
-	<div style="position: absolute; top: 250px; left: 460px;">
+	<div style="position: absolute; top: 180px; left: 420px;">
 		<img id="ImgBtTW" src="../Assets/03_Post_Donate/Tweet_OnMouseOver.png"/>
 	</div>
 </div>
 </body>
 </html>
 ';
-/*
+/*//width: 501px; height: 53px;style="width:502px;height:60px;border:0 none;"
 $code = $connection->request('POST', 'https://upload.twitter.com/1/statuses/update_with_media.json',
 	array(
     	'media[]'  => "@{$image};type=image/jpeg;filename={$image}",
